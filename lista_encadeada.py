@@ -17,15 +17,35 @@ class ListaEncadeada:
         novo_nodo.proximo = self.cabeca
         self.cabeca = novo_nodo
     def insere_final(self,novo_dado,nodo_anterior):
-        novo_nodo = NodoLista(novo_dado)
-        novo_nodo.proximo = nodo_anterior.proximo
-        nodo_anterior.proximo = novo_nodo
+        pass
 
     def busca(self,valor):
         chain = self.cabeca
         while chain and chain.dado != valor:
             chain = chain.proximo
         return chain.dado
+
+    def remove(self,valor):
+        chain = self.cabeca
+        anterior = None
+
+
+        if chain.dado == valor:
+            self.cabeca = chain.proximo
+        else:
+
+            while chain and chain.dado != valor:
+                #armazena o valor anterior da lista para ser usado
+                anterior = chain
+                chain = chain.proximo
+            if chain.dado == valor:
+                #faz com que o próximo do elemento anterior ao removido "pule"
+                # para o elemento após o removido
+                anterior.proximo = chain.proximo
+                chain = None
+
+
+
     def mostra_cabeca(self):
         return self.cabeca.dado
 
@@ -48,6 +68,40 @@ def busca(lista,valor):
         corrente = corrente.proximo
     return corrente.dado
 
+def remove(lista,valor):
+    chain = lista.cabeca
+    anterior = None
+
+    if chain.dado == valor:
+        chain.cabeca = chain.proximo
+        chain = None
+
+        while chain and chain.dado != valor:
+            #armazena o valor anterior da lista para ser usado
+            anterior = chain
+            chain = chain.proximo
+        if chain.dado == valor:
+            #faz com que o próximo do elemento anterior ao removido "pule"
+            # para o elemento após o removido
+            anterior.proximo = chain.proximo
+            chain = None
+
+def remove_duplicatas(lista):
+    #só está removendo uma ocorrência de duplicata, não sei como arrumar.
+    # Talvez com um loop dentro do loop?
+    chain = lista.cabeca
+    anterior = None
+    while chain:
+        #armazena o valor anterior da lista para ser usado
+        anterior = chain
+        chain = chain.proximo
+        if chain.dado == anterior.dado:
+            #faz com que o próximo do elemento anterior ao removido "pule"
+            # para o elemento após o removido
+            anterior.proximo = chain.proximo
+            chain = None
+
+
 lista = ListaEncadeada()
 print("Lista vazia:", lista)
 
@@ -63,5 +117,10 @@ lista.insere_inicio(15)
 print(lista)
 lista.insere_inicio(55)
 print(lista)
-# print(lista.busca(5))
-print(busca(lista,55))
+print(lista.busca(15))
+# print(busca(lista,55))
+lista.remove(55)
+# remove(lista,5)
+print(lista)
+# remove_duplicatas(lista)
+# print(lista)
