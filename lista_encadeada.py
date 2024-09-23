@@ -102,6 +102,7 @@ def remove_duplicatas(lista):
             chain = None
 
 
+
 lista = ListaEncadeada()
 print("Lista vazia:", lista)
 
@@ -111,16 +112,25 @@ print("Lista vazia:", lista)
 # print("Inserindo um novo elemento:", lista)
 # insere_no_inicio(lista, 15)
 # print("Inserindo um novo elemento:", lista)
+
+lista.insere_inicio(10)
+print(lista)
+lista.insere_inicio(10)
+print(lista)
+lista.insere_inicio(7)
+print(lista)
 lista.insere_inicio(5)
 print(lista)
-lista.insere_inicio(15)
+lista.insere_inicio(1)
 print(lista)
-lista.insere_inicio(55)
+lista.insere_inicio(1)
 print(lista)
-print(lista.busca(15))
+lista.insere_inicio(0)
+print(lista)
+print(lista.busca(10))
 # print(busca(lista,55))
-lista.remove(55)
+# lista.remove(55)
 # remove(lista,5)
 print(lista)
-# remove_duplicatas(lista)
+remove_duplicatas(lista)
 # print(lista)
