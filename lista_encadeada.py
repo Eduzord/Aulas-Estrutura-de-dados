@@ -51,7 +51,7 @@ class ListaEncadeada:
             # armazena o valor anterior da lista para ser usado
             anterior = chain
             chain = chain.proximo
-            if chain.dado == anterior.dado:
+            while chain and chain.dado == anterior.dado:
                 # faz com que o próximo do elemento anterior ao removido "pule"
                 # para o elemento após o removido
                 anterior.proximo = chain.proximo
@@ -106,7 +106,8 @@ def remove_duplicatas(lista):
         #armazena o valor anterior da lista para ser usado
         anterior = chain
         chain = chain.proximo
-        if chain.dado == anterior.dado:
+
+        while chain and chain.dado == anterior.dado:
             #faz com que o próximo do elemento anterior ao removido "pule"
             # para o elemento após o removido
             anterior.proximo = chain.proximo
@@ -131,6 +132,10 @@ print(lista)
 lista.insere_inicio(7)
 print(lista)
 lista.insere_inicio(5)
+print(lista)
+lista.insere_inicio(1)
+print(lista)
+lista.insere_inicio(1)
 print(lista)
 lista.insere_inicio(1)
 print(lista)
