@@ -44,6 +44,19 @@ class ListaEncadeada:
                 anterior.proximo = chain.proximo
                 chain = None
 
+    def remove_duplicatas(self):
+        chain = self.cabeca
+        anterior = None
+        while chain:
+            # armazena o valor anterior da lista para ser usado
+            anterior = chain
+            chain = chain.proximo
+            if chain.dado == anterior.dado:
+                # faz com que o próximo do elemento anterior ao removido "pule"
+                # para o elemento após o removido
+                anterior.proximo = chain.proximo
+                chain = chain.proximo
+
 
 
     def mostra_cabeca(self):
@@ -87,8 +100,6 @@ def remove(lista,valor):
             chain = None
 
 def remove_duplicatas(lista):
-    #só está removendo uma ocorrência de duplicata, não sei como arrumar.
-    # Talvez com um loop dentro do loop?
     chain = lista.cabeca
     anterior = None
     while chain:
@@ -99,7 +110,7 @@ def remove_duplicatas(lista):
             #faz com que o próximo do elemento anterior ao removido "pule"
             # para o elemento após o removido
             anterior.proximo = chain.proximo
-            chain = None
+            chain = chain.proximo
 
 
 
@@ -132,5 +143,6 @@ print(lista.busca(10))
 # lista.remove(55)
 # remove(lista,5)
 print(lista)
-remove_duplicatas(lista)
-# print(lista)
+# remove_duplicatas(lista)
+lista.remove_duplicatas()
+print(lista)
