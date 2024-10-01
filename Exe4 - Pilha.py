@@ -41,6 +41,18 @@ class RuaEstreita:
         else:
             print("Carro está estacionado na rua")
 
+    def remover_carro(self,placa):
+        atual = self.topo
+        fila_remover = []
+        while atual and atual.placa != placa:
+            fila_remover.append(atual.placa)
+            atual = atual.anterior
+        if not atual:
+            print("Carro não está estacionado na rua")
+        else:
+            print(f"Para remover o carro deve-se o(s) remover {fila_remover}")
+
+
 rua = RuaEstreita()
 rua.inserir_nodo(321)
 print(rua)
@@ -49,3 +61,4 @@ print(rua)
 rua.inserir_nodo(567)
 print(rua)
 rua.busca_carro(219)
+rua.remover_carro(111)
