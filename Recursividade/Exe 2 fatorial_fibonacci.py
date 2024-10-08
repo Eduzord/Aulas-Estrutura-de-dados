@@ -9,3 +9,5 @@ def fibonacci(posicao):
        return  fibonacci(posicao-1) + fibonacci(posicao-2)
 
 print(fibonacci(8))
+
+# Faça os exercícios na sequencia 1,4,5,7,9,12,13,14,15,16
